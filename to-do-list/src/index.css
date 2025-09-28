@@ -1,0 +1,107 @@
+body {
+  
+  font-family: "Caprasimo", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.app{
+  width: 500px;
+  padding: 20px;
+  background-color: #020617;
+  color: #FFF;
+  margin: 100px auto;
+  border: 4px solid #1560ad;
+  border-radius: 15px;
+}
+header{
+  text-align: center;
+}
+.taskinput{
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+.taskinput input{
+  margin: 15px 0;
+  padding: 15px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+.taskinput input:focus{
+  border: 3px solid #1560ad;
+}
+.taskinput span{
+  margin: 10px;
+}
+.taskinput select{
+  padding: 10px;
+  margin-left:20px;
+  border-radius: 10px;
+}
+.taskinput select:focus{
+  outline: none;
+  border: 3px solid #1560ad;
+}
+.btn {
+  display: block;        
+  margin: 15px auto;     
+  padding: 15px;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background-color: #1560ad;
+  color: #FFF;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover{
+  opacity: 0.8;
+}
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ccccccb5;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ul li input[type="checkbox"] {
+  margin-right: 10px;
+}
+.task-btn{
+  margin-right: 5px;
+  border: none;
+  outline: none;
+  color: #1560ad;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+footer{
+  border-top: 3px solid #1560ad;
+  padding: 10px;
+  text-align: center;
+}
+
+.crucial{
+  color: red;
+}
+.important{
+  color: yellow;
+}
+.normal{
+  color: green;
+}
+.not-important{
+  color: #FFF;
+}
