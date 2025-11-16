@@ -1,4 +1,8 @@
-function FinishScreen({ points, numPoints, highscore, dispatch }) {
+import { useQuiz } from "../context/ReactQuizContext";
+
+function FinishScreen() {
+  const {numPoints ,points, highscore, dispatch } = useQuiz()
+
   const percentage = (points / numPoints) * 100;
     return (
         <>
