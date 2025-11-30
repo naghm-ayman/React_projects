@@ -1,0 +1,18 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["className=\"([^\"]*)\"", "className='([^']*)'", "className=\\{([^\\}]*)\\}"],
+    ["class=\"([^\"]*)\"", "class='([^']*)'", "class=\\{([^\\}]*)\\}"]
+  ],
+  "files.associations": {
+    "*.css": "postcss"
+  }
+}
