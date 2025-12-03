@@ -1,39 +1,22 @@
 import { Link } from "react-router-dom";
-import EditPopUp from "./components/EditPopUp";
 import { useTasks } from "./context/tasksContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import EditPopUp from "./components/EditPopUp";
 import DeletePopUp from "./components/DeletePopUp";
 function Layout({ children }) {
-  const { showEdit, setTasks, tasks , showDelete } = useTasks();
+  const { showEdit, showDelete, dispatch } = useTasks();
   const [newTask, setNewTask] = useState("");
 
-  
   function handleAdd(e) {
     e.preventDefault();
     
     if (newTask.trim() === "") return;
 
-    const newArrTask = {
-          id: crypto.randomUUID(),
-          title: newTask,
-          describtion: "",
-          isCompleted: false,
-        };
-
-    setTasks((tasks) => [...tasks, newArrTask]);
-    localStorage.setItem("tasks", JSON.stringify([...tasks, newArrTask]))
+    dispatch({type: 'addNewTask', payload: newTask})
     setNewTask("");
+    toast.success("Task successfully added")
   }
-
-  useEffect(() => {
-  try {
-    const stored = JSON.parse(localStorage.getItem("tasks"));
-    setTasks(Array.isArray(stored) ? stored : []);
-  } catch {
-    setTasks([]);
-  }
-}, []);
-
 
   return (
     <>

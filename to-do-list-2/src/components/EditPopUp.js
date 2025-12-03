@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useTasks } from "../context/tasksContext";
+import toast from "react-hot-toast";
 
 function EditPopUp() {
-  const { setShowEdit, setTasks, taskId } = useTasks();
+  const { setShowEdit, taskId, dispatch } = useTasks();
   const [newEdit, setNewEdit] = useState({
     title: "",
     describtion: "",
@@ -16,19 +17,11 @@ function EditPopUp() {
 
   function handleEdit(e) {
   e.preventDefault();
-    setTasks((tasks) => {
-    const updatedTasks = tasks.map((task) =>
-      task.id === taskId
-        ? { ...task, title: newEdit.title, describtion: newEdit.describtion }
-        : task
-    );
-
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-
-    return updatedTasks; 
-  });
+    dispatch({type: "editTask", payload:{taskId, title: newEdit.title,
+      describtion: newEdit.describtion}})
 
   setShowEdit(false)
+  toast.success("Task successfully Edited")
 }
   
   return (

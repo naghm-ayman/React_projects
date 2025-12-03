@@ -2,20 +2,20 @@ import { HiOutlineCheckCircle } from "react-icons/hi";
 import { HiPencilAlt } from "react-icons/hi";
 import { MdDeleteOutline } from "react-icons/md";
 import { useTasks } from "../context/tasksContext";
+import toast from "react-hot-toast";
 
 function TaskList({ taskObj }) {
-  const { setShowEdit, setTasks, setTaskId, setShowDelete } = useTasks();
+  const { setShowEdit, setTaskId, setShowDelete, dispatch } = useTasks();
 
   function handleComplete(id) {
-    setTasks((tasks) => {
-      const updatedTasks = tasks.map((task) =>
-        task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
-
-    );
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-
-    return updatedTasks; 
-    });
+    dispatch({type: "completeTasks", payload: id})
+    
+    if(!taskObj.isCompleted){
+      toast.success("Task successfully completed")
+    }else {
+    toast("Task marked incomplete");
+  }
+    
   }
 
   function handleEdit(id) {
